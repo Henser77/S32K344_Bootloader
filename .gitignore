@@ -1,0 +1,51 @@
+#===================================================================================================
+#  .gitignore —— S32K344_Bootloader（公开仓库版）
+#
+#  【与本地备份仓库的区别】
+#      本地备份仓库：包含 RTD/（NXP 驱动源码），只用于自己防丢
+#      本公开仓库  ：**排除 RTD/** —— NXP 的驱动受 LA_OPT_NXP_SW 约束，不随仓库分发
+#
+#  因此 clone 下来后需要自行安装 S32DS + RTD 7.0.1 D2602 才能编译，
+#  详见 README 的「如何构建」。
+#===================================================================================================
+
+# ── 厂商驱动（授权原因，不公开）──
+RTD/
+
+# ── 构建输出（随每次编译变化，体积大）──
+Debug_FLASH/
+Debug_RAM/
+Release_FLASH/
+Release_RAM/
+*.o
+*.d
+*.elf
+*.map
+*.s19
+*.hex
+*.bin
+
+# ── IDE 工作区状态（每台机器不同）──
+.settings/
+.metadata/
+RemoteSystemsTempFiles/
+
+# ── 上位机工具的运行产物 ──
+__pycache__/
+*.pyc
+tools/host/__pycache__/
+tools/gui_error.log
+tools/gui_config.json
+tools/ecubus/*.bin
+# 免安装的 32 位 Python 不入库（需要时自行下载）
+tools/python32/
+tools/python32_full/
+
+# ── 编辑器 / 系统临时文件 ──
+*~
+*.bak
+*.orig
+*.rej
+*.swp
+Thumbs.db
+Desktop.ini
